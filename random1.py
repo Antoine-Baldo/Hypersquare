@@ -13,7 +13,7 @@ nV = 2
 
 # Sample number setpoint
 # You can change the Sample number
-nS = 60
+nS = 40
 
 # Initialisation:
 k = 1

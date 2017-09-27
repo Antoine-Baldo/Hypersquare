@@ -35,14 +35,12 @@ for i in range(1,(nV+1)):
 		b = ((float(j))/nS)
 		listesample = random.uniform(a,b)
 		x1.append(listesample)
-
 	# Select a random number nP times between each Sample and for each Var (part2)
 	for k in range(1,nS+1):
 		listechoice = random.choice(x1)
 		x.setdefault(k, []).append(listechoice)
 		x1.remove(listechoice)
-
-# pprint(x)
+pprint(x)
 for k in range(1,nS+1):
 	plt.scatter(float(x[k][0]),float(x[k][1]) , color="b", label="LHS")
 plt.grid()

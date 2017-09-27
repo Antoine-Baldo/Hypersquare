@@ -1,9 +1,11 @@
 
-# Programmed by Antoine BALDO
+## Programmed by Antoine BALDO ##
 
 import os 
 import random
 from pprint import pprint
+import matplotlib.pyplot as plt
+import numpy
 
 # Var number (nV dimension) setpoint
 # You can change the dimension's size
@@ -11,10 +13,15 @@ nV = 2
 
 # Sample number setpoint
 # You can change the Sample number
-nS = 20
+nS = 60
 
 # Initialisation:
 k = 1
+# Grid Setup
+fig = plt.figure() 
+ax = fig.gca()
+ax.set_xticks(numpy.arange(0,1,(1/float(nS))))
+ax.set_yticks(numpy.arange(0,1,(1/float(nS))))
 # Creation of a list dictionnary
 x = {}
 x[k] = []
@@ -34,4 +41,9 @@ for i in range(1,(nV+1)):
 		listechoice = random.choice(x1)
 		x.setdefault(k, []).append(listechoice)
 		x1.remove(listechoice)
-pprint(x)
+
+# pprint(x)
+for k in range(1,nS+1):
+	plt.scatter(float(x[k][0]),float(x[k][1]) , color="b", label="LHS")
+plt.grid()
+plt.show()

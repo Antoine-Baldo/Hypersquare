@@ -46,7 +46,7 @@ def lhs(nV,nS):
 	plt.show()
 
 def function():
-	lhs(2,40)
+	lhs(2,20)
 
 
 class Window(QtGui.QMainWindow):

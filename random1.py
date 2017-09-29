@@ -15,7 +15,7 @@ nV = 2
 
 # Sample number setpoint
 # You can change the Sample number
-nS = 40
+nS = 20
 
 # Initialisation:
 # Grid Setup

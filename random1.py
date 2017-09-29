@@ -1,11 +1,13 @@
 
 ## Programmed by Antoine BALDO ##
 
+import sys
 import os 
 import random
 from pprint import pprint
 import matplotlib.pyplot as plt
 import numpy
+from PyQt4 import QtGui, QtCore
 
 # Var number (nV dimension) setpoint
 # You can change the dimension's size
@@ -16,16 +18,15 @@ nV = 2
 nS = 40
 
 # Initialisation:
-k = 1
 # Grid Setup
 fig = plt.figure() 
 ax = fig.gca()
 ax.set_xticks(numpy.arange(0,1,(1/float(nS))))
 ax.set_yticks(numpy.arange(0,1,(1/float(nS))))
 # Creation of a list dictionnary
+k = 1
 x = {}
 x[k] = []
-
 # Loop elements (part1)
 for i in range(1,(nV+1)):
 	x1 = []

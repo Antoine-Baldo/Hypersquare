@@ -48,35 +48,47 @@ def lhs(nV,nS):
 def function():
 	lhs(2,20)
 
+def run():
+	app = QtGui.QApplication(sys.argv)
+	GUI = Window()
+	sys.exit(app.exec_())
 
 class Window(QtGui.QMainWindow):
 
 	def __init__(self):
 		super(Window, self).__init__()
-		self.setGeometry(100,100,500,100)
+		self.setGeometry(100,100,500,200)
 		self.setWindowTitle('Hypersquare control!!!')
 		self.setWindowIcon(QtGui.QIcon('images.png'))
 		self.home()
 
 	def home(self):
-		nS = 0
+	
 		btnQ = QtGui.QPushButton("Quit!", self)
 		btnQ.clicked.connect(QtCore.QCoreApplication.instance().quit)
-		btnQ.move(300,70)
+		btnQ.move(300,170)
+
 		btnR = QtGui.QPushButton("Run!", self)
 		btnR.clicked.connect(function)
-		btnR.move(100,70)
+		btnR.move(100,170)
+
+		le = QtGui.QLineEdit(self)
+		le.move(200,50)
+
+
 		sl = QtGui.QSlider(QtCore.Qt.Horizontal, self)
 		sl.setMinimum(1)
 		sl.setMaximum(100)
 		sl.setValue(50)
-		sl.move(200,30)
-		# sl.value(nS)
+		sl.move(200,110)
+		sl.setTickInterval(10)
+		sl.setTickPosition(QtGui.QSlider.TicksBelow)
+		sl.valueChanged.connect(self.V_change)
 
 		self.show()
 
-def run():
-	app = QtGui.QApplication(sys.argv)
-	GUI = Window()
-	sys.exit(app.exec_())
+	def V_change(self):
+		nS_Value = str(self.sl.value())
+		self.le.setText(nS_Value)
+
 run()

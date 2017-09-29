@@ -46,27 +46,33 @@ def lhs(nV,nS):
 	plt.show()
 
 def function():
-	exit(lhs(2,40))
 	lhs(2,40)
-	
 
 
 class Window(QtGui.QMainWindow):
 
 	def __init__(self):
 		super(Window, self).__init__()
-		self.setGeometry(50,50,500,500)
-		self.setWindowTitle('Hypersquare !!!')
+		self.setGeometry(100,100,500,100)
+		self.setWindowTitle('Hypersquare control!!!')
 		self.setWindowIcon(QtGui.QIcon('images.png'))
 		self.home()
 
 	def home(self):
+		nS = 0
 		btnQ = QtGui.QPushButton("Quit!", self)
 		btnQ.clicked.connect(QtCore.QCoreApplication.instance().quit)
-		btnQ.move(300,470)
-		btnR = QtGui.QPushButton("Refresh!", self)
+		btnQ.move(300,70)
+		btnR = QtGui.QPushButton("Run!", self)
 		btnR.clicked.connect(function)
-		btnR.move(100,470)
+		btnR.move(100,70)
+		sl = QtGui.QSlider(QtCore.Qt.Horizontal, self)
+		sl.setMinimum(1)
+		sl.setMaximum(100)
+		sl.setValue(50)
+		sl.move(200,30)
+		# sl.value(nS)
+
 		self.show()
 
 def run():

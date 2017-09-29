@@ -6,14 +6,14 @@ import matplotlib.pyplot as plt
 import numpy
 from PyQt4 import QtGui, QtCore
 
-def lhs():
-		# Var number (nV dimension) setpoint
+def lhs(nV,nS):
+	# Var number (nV dimension) setpoint
 	# You can change the dimension's size
-	nV = 2
+	# nV = 2
 
 	# Sample number setpoint
 	# You can change the Sample number
-	nS = 40
+	# nS = 40
 
 	# Initialisation:
 	# Grid Setup
@@ -45,19 +45,32 @@ def lhs():
 	plt.grid()
 	plt.show()
 
+def function():
+	exit(lhs(2,40))
+	lhs(2,40)
+	
+
+
 class Window(QtGui.QMainWindow):
 
 	def __init__(self):
 		super(Window, self).__init__()
 		self.setGeometry(50,50,500,500)
 		self.setWindowTitle('Hypersquare !!!')
+		self.setWindowIcon(QtGui.QIcon('images.png'))
 		self.home()
 
 	def home(self):
-		btn = QtGui.QPushButton("refresh", self)
-		btn.clicked.connect(QtCore.QCoreApplication.instance().lhs)
+		btnQ = QtGui.QPushButton("Quit!", self)
+		btnQ.clicked.connect(QtCore.QCoreApplication.instance().quit)
+		btnQ.move(300,470)
+		btnR = QtGui.QPushButton("Refresh!", self)
+		btnR.clicked.connect(function)
+		btnR.move(100,470)
 		self.show()
 
-app = QtGui.QApplication(sys.argv)
-GUI = Window()
-sys.exit(app.exec_())
+def run():
+	app = QtGui.QApplication(sys.argv)
+	GUI = Window()
+	sys.exit(app.exec_())
+run()

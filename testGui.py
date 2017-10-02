@@ -39,7 +39,7 @@ def lhs(nV,nS):
 			listechoice = random.choice(x1)
 			x.setdefault(k, []).append(listechoice)
 			x1.remove(listechoice)
-	pprint(x)
+	# pprint(x)
 	for k in range(1,nS+1):
 		plt.scatter(float(x[k][0]),float(x[k][1]) , color="b", label="LHS")
 	plt.grid()
@@ -72,18 +72,18 @@ class Window(QtGui.QMainWindow):
 		btnR.clicked.connect(function)
 		btnR.move(100,170)
 
-		le = QtGui.QLineEdit(self)
-		le.move(200,50)
+		self.le = QtGui.QLineEdit(self)
+		self.le.move(200,50)
 
 
-		sl = QtGui.QSlider(QtCore.Qt.Horizontal, self)
-		sl.setMinimum(1)
-		sl.setMaximum(100)
-		sl.setValue(50)
-		sl.move(200,110)
-		sl.setTickInterval(10)
-		sl.setTickPosition(QtGui.QSlider.TicksBelow)
-		sl.valueChanged.connect(self.V_change)
+		self.sl = QtGui.QSlider(QtCore.Qt.Horizontal, self)
+		self.sl.setMinimum(1)
+		self.sl.setMaximum(100)
+		self.sl.setValue(50)
+		self.sl.move(200,110)
+		self.sl.setTickInterval(10)
+		self.sl.setTickPosition(QtGui.QSlider.TicksBelow)
+		self.sl.valueChanged.connect(self.V_change)
 
 		self.show()
 

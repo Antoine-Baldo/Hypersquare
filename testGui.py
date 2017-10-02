@@ -19,7 +19,7 @@ class Window(QtGui.QDialog):
 
 	def __init__(self, parent=None):
 		super(Window, self).__init__(parent)
-		self.setGeometry(100,100,800,600)
+		self.setGeometry(630,30,800,800)
 		self.setWindowTitle('Hypersquare control!!!')
 		self.setWindowIcon(QtGui.QIcon('images.png'))
 
@@ -34,13 +34,11 @@ class Window(QtGui.QDialog):
 		self.setLayout(grid)
 		grid.addWidget(self.canvas)
 
-		def lhs(nV,nS):
+		def lhs(nS):
 			# Initialisation:	
+			nV = 2
 			# Grid Setup
-			# fig = plt.figure() 
-			# ax = fig.gca()
-			# ax.set_xticks(numpy.arange(0,1,(1/float(nS))))
-			# ax.set_yticks(numpy.arange(0,1,(1/float(nS))))
+			ax = self.fig.add_subplot(111)
 			# Creation of a list dictionnary
 			k = 1
 			x = {}
@@ -64,20 +62,16 @@ class Window(QtGui.QDialog):
 			data1 = [float(x[k][0]) for k in range(1,nS+1)]
 			data2 = [float(x[k][1]) for k in range(1,nS+1)]
 
-			gridabs = []
-			gridord = []
-
-			ax = self.fig.add_subplot(111)
 			ax.clear()
 			ax.plot(data1, data2, 'b.')
-			ax.grid(True)
 			ax.set_xticks(numpy.arange(0,1,(1/float(nS))))
 			ax.set_yticks(numpy.arange(0,1,(1/float(nS))))
+			ax.grid(True)
 			self.canvas.draw()
 			
 
 		def function():
-			lhs(2,20)
+			lhs(20)
 
 		btnR = QtGui.QPushButton("Run!", self)
 		btnR.clicked.connect(function)

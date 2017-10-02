@@ -72,23 +72,25 @@ class Window(QtGui.QMainWindow):
 		btnR.clicked.connect(function)
 		btnR.move(100,170)
 
-		self.le = QtGui.QLineEdit(self)
-		self.le.move(200,50)
-
+		self.sp = QtGui.QSpinBox(self)
+		self.sp.move(200,50)
+		self.sp.setRange(0, 100)
+		self.sp.setSingleStep(1)
 
 		self.sl = QtGui.QSlider(QtCore.Qt.Horizontal, self)
-		self.sl.setMinimum(1)
+		self.sl.setMinimum(0)
 		self.sl.setMaximum(100)
-		self.sl.setValue(50)
+		self.sl.setValue(0)
 		self.sl.move(200,110)
 		self.sl.setTickInterval(10)
 		self.sl.setTickPosition(QtGui.QSlider.TicksBelow)
 		self.sl.valueChanged.connect(self.V_change)
+		self.sp.valueChanged.connect(self.sl.setValue)
 
 		self.show()
 
 	def V_change(self):
 		nS_Value = str(self.sl.value())
-		self.le.setText(nS_Value)
+		self.sp.setSpecialValueText(nS_Value)
 
 run()

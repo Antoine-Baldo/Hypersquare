@@ -65,8 +65,9 @@ class Window(QtGui.QDialog):
 
 			ax.clear()
 			ax.plot(data1, data2, 'b.')
-			ax.set_xticks(numpy.arange(0,1,(1/float(nS))))
-			ax.set_yticks(numpy.arange(0,1,(1/float(nS))))
+			if nS < 26 :
+				ax.set_xticks(numpy.arange(0,1,(1/float(nS))))
+				ax.set_yticks(numpy.arange(0,1,(1/float(nS))))
 			ax.grid(True)
 			self.canvas.draw()
 			

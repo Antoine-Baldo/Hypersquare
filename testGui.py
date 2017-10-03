@@ -26,7 +26,7 @@ class Window(QtGui.QDialog):
 		self.fig = Figure() 
 		self.canvas = FigureCanvas(self.fig)
 
-		btnQ = QtGui.QPushButton('Quit!', self)
+		btnQ = QtGui.QPushButton('Quit', self)
 		btnQ.clicked.connect(QtCore.QCoreApplication.instance().quit)
 		btnQ.move(300,170)
 
@@ -75,7 +75,7 @@ class Window(QtGui.QDialog):
 		def function():
 			lhs()
 
-		btnR = QtGui.QPushButton("Run!", self)
+		btnR = QtGui.QPushButton("Run", self)
 		btnR.clicked.connect(function)
 		btnR.move(100,170)
 

@@ -81,15 +81,15 @@ class Window(QtGui.QDialog):
 
 		self.sp = QtGui.QSpinBox(self)
 		self.sp.move(200,50)
-		self.sp.setRange(1, 100)
+		self.sp.setRange(0, 100)
 		self.sp.setSingleStep(1)
 
 		self.toolbar = NavigationToolbar(self.canvas, self)
 
 		self.sl = QtGui.QSlider(QtCore.Qt.Horizontal, self)
-		self.sl.setMinimum(1)
+		self.sl.setMinimum(0)
 		self.sl.setMaximum(100)
-		self.sl.setValue(1)
+		self.sl.setValue(0)
 		self.sl.move(200,110)
 		self.sl.setTickInterval(10)
 		self.sl.setTickPosition(QtGui.QSlider.TicksBelow)

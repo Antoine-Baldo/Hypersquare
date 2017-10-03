@@ -19,7 +19,7 @@ class Window(QtGui.QDialog):
 
 	def __init__(self, parent=None):
 		super(Window, self).__init__(parent)
-		self.setGeometry(630,30,800,800)
+		self.setGeometry(630,80,800,800)
 		self.setWindowTitle('Hypersquare control!!!')
 		self.setWindowIcon(QtGui.QIcon('images.png'))
 
@@ -34,9 +34,10 @@ class Window(QtGui.QDialog):
 		self.setLayout(grid)
 		grid.addWidget(self.canvas)
 
-		def lhs(nS):
+		def lhs():
 			# Initialisation:	
 			nV = 2
+			nS = self.sl.value()
 			# Grid Setup
 			ax = self.fig.add_subplot(111)
 			# Creation of a list dictionnary
@@ -71,7 +72,7 @@ class Window(QtGui.QDialog):
 			
 
 		def function():
-			lhs(20)
+			lhs()
 
 		btnR = QtGui.QPushButton("Run!", self)
 		btnR.clicked.connect(function)
@@ -79,15 +80,15 @@ class Window(QtGui.QDialog):
 
 		self.sp = QtGui.QSpinBox(self)
 		self.sp.move(200,50)
-		self.sp.setRange(0, 100)
+		self.sp.setRange(1, 100)
 		self.sp.setSingleStep(1)
 
 		self.toolbar = NavigationToolbar(self.canvas, self)
 
 		self.sl = QtGui.QSlider(QtCore.Qt.Horizontal, self)
-		self.sl.setMinimum(0)
+		self.sl.setMinimum(1)
 		self.sl.setMaximum(100)
-		self.sl.setValue(0)
+		self.sl.setValue(1)
 		self.sl.move(200,110)
 		self.sl.setTickInterval(10)
 		self.sl.setTickPosition(QtGui.QSlider.TicksBelow)

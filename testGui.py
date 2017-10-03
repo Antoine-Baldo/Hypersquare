@@ -76,9 +76,8 @@ class Window(QtGui.QDialog):
 
 		btnR = QtGui.QPushButton("Run", self)
 		btnR.clicked.connect(function)
-		
+
 		self.sp = QtGui.QSpinBox(self)
-		self.sp.move(200,50)
 		self.sp.setRange(0, 100)
 		self.sp.setSingleStep(1)
 
@@ -88,7 +87,6 @@ class Window(QtGui.QDialog):
 		self.sl.setMinimum(0)
 		self.sl.setMaximum(100)
 		self.sl.setValue(0)
-		self.sl.move(200,110)
 		self.sl.setTickInterval(10)
 		self.sl.setTickPosition(QtGui.QSlider.TicksBelow)
 		self.sl.valueChanged.connect(self.sp.setValue)

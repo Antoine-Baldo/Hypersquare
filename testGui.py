@@ -28,7 +28,6 @@ class Window(QtGui.QDialog):
 
 		btnQ = QtGui.QPushButton('Quit', self)
 		btnQ.clicked.connect(QtCore.QCoreApplication.instance().quit)
-		btnQ.move(300,170)
 
 		grid = QtGui.QGridLayout()
 		self.setLayout(grid)
@@ -77,8 +76,7 @@ class Window(QtGui.QDialog):
 
 		btnR = QtGui.QPushButton("Run", self)
 		btnR.clicked.connect(function)
-		btnR.move(100,170)
-
+		
 		self.sp = QtGui.QSpinBox(self)
 		self.sp.move(200,50)
 		self.sp.setRange(0, 100)

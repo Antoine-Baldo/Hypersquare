@@ -1,5 +1,5 @@
 
-## Programmed by Antoine BALDO ##
+"Programmed by Antoine BALDO"
 
 import sys
 import os 
